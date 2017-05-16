@@ -55,6 +55,9 @@
   position: absolute;
   top: 50%;
   left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   height: 52px;
   width: 120px;
 }
@@ -70,29 +73,24 @@
           animation: up-and-down 2s infinite;
 }
 .preloader-page__dot:nth-child(2) {
+  background: #ff5656;
   -webkit-animation-delay: 0.15s;
           animation-delay: 0.15s;
 }
 .preloader-page__dot:nth-child(3) {
+  background: #6a7efc;
   -webkit-animation-delay: 0.3s;
           animation-delay: 0.3s;
 }
 .preloader-page__dot:nth-child(4) {
+  background: #ff5656;
   -webkit-animation-delay: 0.45s;
           animation-delay: 0.45s;
 }
 .preloader-page__dot:nth-child(5) {
+  background: #6a7efc;
   -webkit-animation-delay: 0.6s;
           animation-delay: 0.6s;
-}
-body {
-  overflow-x: hidden;
-}
-*::-moz-selection {
-  background: #ff5656;
-}
-*::selection {
-  background: #ff5656;
 }
 ::-webkit-scrollbar-track {
   background-color: #fff;
@@ -102,6 +100,15 @@ body {
 }
 ::-webkit-scrollbar-thumb {
   background-color: #ff5656;
+}
+body {
+  overflow-x: hidden;
+}
+*::-moz-selection {
+  background: #ff5656;
+}
+*::selection {
+  background: #ff5656;
 }
 .page-overlay {
   position: fixed;
@@ -139,6 +146,7 @@ body {
   }
 }
 .burger-menu {
+  display: none;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -631,6 +639,7 @@ body {
   }
 }
 .page-title__btn {
+  overflow: hidden;
   display: inline-block;
   vertical-align: top;
   font-family: 'Opensans_regular', sans-serif;
@@ -888,6 +897,7 @@ body {
   height: auto;
 }
 .features-content__btn {
+  overflow: hidden;
   display: inline-block;
   vertical-align: top;
   font-family: 'Opensans_regular', sans-serif;
@@ -1172,6 +1182,7 @@ body {
   text-align: center;
 }
 .btn-holder__btn {
+  overflow: hidden;
   display: inline-block;
   vertical-align: top;
   font-family: 'Opensans_regular', sans-serif;
@@ -1497,6 +1508,7 @@ body {
 .post-box__btn {
   margin-top: 26px;
   margin-bottom: 26px;
+  overflow: hidden;
   display: inline-block;
   vertical-align: top;
   font-family: 'Opensans_regular', sans-serif;
@@ -1575,6 +1587,7 @@ body {
 }
 .get-started-title__btn {
   margin-top: 104px;
+  overflow: hidden;
   display: inline-block;
   vertical-align: top;
   font-family: 'Opensans_regular', sans-serif;
@@ -1786,6 +1799,7 @@ body {
   font-family: 'Opensans_regular', sans-serif;
   font-size: 16px;
   line-height: 1.45;
+  overflow: hidden;
   display: inline-block;
   vertical-align: top;
   font-family: 'Opensans_regular', sans-serif;
