@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Home page</title>
+    <meta content="" name="author">
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500&amp;amp;subset=cyrillic">
+    <link rel="stylesheet" href="/assets/css/foundation.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="/assets/js/foundation.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js" defer></script>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" defer></script>
+    <script src="/assets/js/app.min.js" defer></script><!--[if lt IE 9]>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script><![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <section class="map" id="map">
+      </section>
+      <div class="balloon" id="form">
+      </div>
+      <script id="template" type="text/x-handlebars-template">
+        <div class="balloon-header">
+          <svg class="icon icon-map-marker ">
+            <use xlink:href="/assets/img/sprites/sprite.svg#map-marker"></use>
+          </svg>{{address}}
+          <svg class="icon icon-times ">
+            <use xlink:href="/assets/img/sprites/sprite.svg#times"></use>
+          </svg>
+        </div>
+        <div class="balloon-body">
+          <div class="balloon-body__feed" id="feed">Отзывов пока нет</div>
+          <div class="balloon-body__form">
+            <div class="balloon-body__group">
+              <SPAN class="balloon-body__title">ВАШ ОТЗЫВ</SPAN>
+            </div>
+            <div class="balloon-body__group">
+              <INPUT class="balloon-body__control" id="firstName" placeholder="Ваше имя"></INPUT>
+            </div>
+            <div class="balloon-body__group">
+              <INPUT class="balloon-body__control" id="spot" placeholder="Укажите место"></INPUT>
+            </div>
+            <div class="balloon-body__group">
+              <TEXTAREA class="balloon-body__control balloon-body__textarea" id="comment" placeholder="Поделитесь впечатлениями"></TEXTAREA>
+            </div>
+          </div>
+        </div>
+        <div class="balloon-footer">
+          <BUTTON class="balloon-footer__button" id="button-add">Добавить</BUTTON>
+        </div>
+      </script>
+      <script id="feed-template" type="text/x-handlebars-template">{{#each items}}
+        <div class="balloon-body__review">
+          <div class="balloon-body__info">
+            <SPAN class="balloon-body__name">{{name}}</SPAN>
+            <SPAN class="balloon-body__spot">{{spot}}</SPAN>
+            <SPAN class="balloon-body__date">{{date}}</SPAN>
+          </div>
+          <div class="balloon-body__comment">{{comment}}</div>
+        </div>{{/each}}
+      </script>
+    </div>
+  </body>
+</html>

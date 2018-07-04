@@ -1,0 +1,394 @@
+@charset "UTF-8";
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Normalize
+# Typography
+# Elements
+# Forms
+# Navigation
+  ## Links
+  ## Menus
+# Accessibility
+# Alignments
+# Clearings
+# Widgets
+# Content
+  ## Posts and pages
+  ## Comments
+# Infinite scroll
+# Media
+  ## Captions
+  ## Galleries
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Global imports
+--------------------------------------------------------------*/
+/*
+clearfix миксин плейсхолдер
+*/
+/*
+center element
+*/
+/*
+Fill element
+*/
+/*
+Sizes for element
+*/
+/*
+inline-block
+*/
+/*
+shadow
+*/
+/*
+adaptive media
+*/
+/*
+cols(n=3, m=10)
+margin-right m px
+width ((100% - (((@margin-right * n) / wrapper-width) * 100%)) / n)
+&:last-child
+margin-right 0px
+
+// Fonts mixin
+font-url(file)
+return '../fonts/' + file
+
+webfont(family, file, hack-chrome-windows = false, weight = 'normal')
+@font-face
+font-family family
+src url(font-url(file + '.eot'))
+src url(font-url(file + '.eot?#iefix')) format('embedded-opentype'),
+url(font-url(file + '.woff')) format('woff'),
+url(font-url(file + '.ttf')) format('truetype'),
+url(font-url(file + '.svg#'+ family)) format('svg')
+font-weight weight
+font-style normal
+if hack-chrome-windows
+@media screen and (-webkit-min-device-pixel-ratio:0)
+@font-face
+font-family family
+src url(font-url(file + '.svg#'+ family)) format('svg')
+*/
+/*
+font-size
+*/
+/*
+bernier font
+*/
+/*шаблон по которому формирются стили для svg иконок*/
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans:300,500&amp;subset=cyrillic");
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  fill: currentColor; }
+
+.icon-map-marker {
+  font-size: 51.2rem;
+  width: 0.75em; }
+
+.icon-plus {
+  font-size: 51.2rem;
+  width: 0.875em; }
+
+.icon-search {
+  font-size: 51.2rem;
+  width: 1em; }
+
+.icon-times {
+  font-size: 51.2rem;
+  width: 0.6875em; }
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+body {
+  -webkit-font-smoothing: antialiased; }
+
+body,
+button,
+input,
+select,
+textarea {
+  resize: none;
+  color: #4f4f4f;
+  font-family: "Fira Sans", Arial, sans-serif;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.6; }
+  @media only screen and (max-width: 480px) {
+    body,
+    button,
+    input,
+    select,
+    textarea {
+      font-size: 20px;
+      font-size: 1.25rem; } }
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: .75em;
+  font-family: "Fira Sans", Arial, sans-serif;
+  margin-bottom: .25em;
+  clear: both;
+  font-weight: normal; }
+
+h1 {
+  font-size: 3em; }
+
+h2 {
+  font-size: 2.6em; }
+
+h3 {
+  font-size: 2.2em; }
+
+h4 {
+  font-size: 2em; }
+
+h5 {
+  font-size: 1.8em; }
+
+h6 {
+  font-size: 1.6em; }
+
+/*--------------------------------------------------------------
+# Content
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Setup
+--------------------------------------------------------------*/
+html {
+  height: 100%;
+  background: #999; }
+
+body {
+  height: 100%;
+  margin: 0; }
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+h1, h2, h3, h4, h5 {
+  margin-top: 0;
+  margin-bottom: 0; }
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none; }
+
+p {
+  margin: 0; }
+
+/*--------------------------------------------------------------
+## Layout
+--------------------------------------------------------------*/
+.wrapper {
+  min-height: 100%;
+  position: relative;
+  overflow: hidden; }
+
+/*--------------------------------------------------------------
+## pop-up
+--------------------------------------------------------------*/
+.balloon {
+  font-family: 'Fira Sans', 'Arial', 'serif';
+  font-size: 15px;
+  font-weight: 400;
+  color: #4f4f4f;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 379px;
+  height: auto;
+  max-height: 527px;
+  border-radius: 15px;
+  background: white;
+  overflow: hidden;
+  -webkit-transition: max-height 1s ease-in-out;
+  -o-transition: max-height 1s ease-in-out;
+  transition: max-height 1s ease-in-out; }
+
+.balloon-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-line-pack: baseline;
+      align-content: baseline;
+  line-height: 52px;
+  color: #fff;
+  height: 45px;
+  font-size: 12px;
+  padding-left: 46px;
+  font-weight: 300;
+  background: #ff8663;
+  border-radius: 15px 15px 0 0; }
+  .balloon-header .icon-times {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer; }
+  .balloon-header .icon-map-marker {
+    position: absolute;
+    top: 9px;
+    left: 16px;
+    font-size: 25px;
+    color: #fff;
+    cursor: pointer; }
+
+.balloon-body {
+  padding: 16px; }
+  .balloon-body__title {
+    font-weight: 500;
+    color: #ff8663;
+    text-transform: uppercase; }
+  .balloon-body__feed {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 155px;
+    border-bottom: 1px solid #f0f0f0; }
+    .balloon-body__feed::-webkit-scrollbar {
+      width: 3px; }
+    .balloon-body__feed::-webkit-scrollbar-thumb {
+      background-color: #c4c4c4; }
+  .balloon-body__review {
+    max-width: 350px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+    height: 75px; }
+  .balloon-body__info {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: baseline;
+        -ms-flex-align: baseline;
+            align-items: baseline;
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%; }
+  .balloon-body__name {
+    font-weight: 500;
+    font-size: 16px;
+    margin-right: 12px; }
+  .balloon-body__spot {
+    color: #9f9f9f;
+    margin-right: 12px; }
+  .balloon-body__date {
+    color: #9f9f9f;
+    font-size: 14px; }
+  .balloon-body__comment {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%; }
+  .balloon-body__group {
+    margin-top: 12px; }
+  .balloon-body__control {
+    outline: none;
+    height: 30px;
+    width: 100%;
+    border: 1px solid #c4c4c4;
+    border-radius: 14px;
+    padding-left: 15px; }
+    .balloon-body__control::-webkit-input-placeholder {
+      font-size: 15px;
+      font-weight: 300;
+      color: #9f9f9f; }
+    .balloon-body__control:-ms-input-placeholder {
+      font-size: 15px;
+      font-weight: 300;
+      color: #9f9f9f; }
+    .balloon-body__control::-ms-input-placeholder {
+      font-size: 15px;
+      font-weight: 300;
+      color: #9f9f9f; }
+    .balloon-body__control::placeholder {
+      font-size: 15px;
+      font-weight: 300;
+      color: #9f9f9f; }
+  .balloon-body__textarea {
+    height: 130px;
+    outline: none;
+    resize: none; }
+
+.balloon-footer {
+  height: 22px;
+  display: block;
+  position: relative; }
+  .balloon-footer__button {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    width: 90px;
+    height: 30px;
+    background: #ff8663;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 300;
+    border: none;
+    cursor: pointer; }
+    .balloon-footer__button:hover {
+      background: white;
+      color: #ff8663; }
+
+.cluster {
+  font-family: 'Fira Sans', 'Arial', 'serif';
+  font-size: 12px;
+  font-weight: 400;
+  color: #4f4f4f; }
+  .cluster__header {
+    font-size: 12px;
+    font-weight: bold; }
+  .cluster__comment {
+    margin-top: 12px; }
+  .cluster__body {
+    margin-top: 12px; }
+  .cluster__footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    margin-top: 12px;
+    color: #c4c4c4; }
+
+/*--------------------------------------------------------------
+## map
+--------------------------------------------------------------*/
+[class*="ymaps-2"][class*="-ground-pane"] {
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%); }
+
+.map {
+  width: 100vw;
+  height: 100vh; }
+
+/*# sourceMappingURL=maps/style.css.map */
