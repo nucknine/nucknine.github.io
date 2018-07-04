@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Home page</title>
+    <meta content="nucknine" name="author">
+    <meta content="vk friends filter application" name="description">
+    <meta content="" name="keywords">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <link rel="stylesheet" href="./assets/css/foundation.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="./assets/js/foundation.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js" defer></script>
+    <script src="http://vk.com/js/api/openapi.js" defer></script>
+    <script src="./assets/js/app.js" defer></script><!--[if lt IE 9]>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script><![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <section class="box">
+        <div class="header">
+          <div class="header__title">Выберите друзей
+            <svg class="icon icon-times ">
+              <use xlink:href="./assets/img/sprites/sprite.svg#times"></use>
+            </svg>
+          </div>
+          <div class="filter-section">
+            <div class="filter-section__half">       <input class="filter-section__input filter-section__input_left" type="text" id="js-input-left" placeholder="Начните вводить имя друга"/>
+              <svg class="icon icon-search ">
+                <use xlink:href="./assets/img/sprites/sprite.svg#search"></use>
+              </svg>
+            </div>
+            <div class="filter-section__half"><input class="filter-section__input" type="text" id="js-input-right" placeholder="Название"/>
+            </div>
+          </div>
+        </div>
+        <div class="main">
+          <div class="main__half">
+            <div class="main__title">Ваши друзья
+            </div>
+            <div class="main__drop-zone" id="js-results">
+            </div>
+          </div>
+          <div class="main__half">
+            <div class="main__title">Друзья в списке
+            </div>
+            <div class="main__drop-zone" id="js-filter-zone">
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          <button class="footer__button" id="js-btn-save">Сохранить
+          </button>
+        </div>
+        <script id="template-left" type="text/x-handlebars-template">{{#each items}}
+          <div class="main__item" draggable="true" data-id="{{id}}"><img class="main__img" draggable="false" src="{{photo_100}}">
+            <div class="main__name">{{first_name}} {{last_name}}</div>
+            <svg class="icon icon-plus ">
+              <use xlink:href="./assets/img/sprites/sprite.svg#plus"></use>
+            </svg>
+          </div>{{/each}}
+        </script>
+        <script id="template-right" type="text/x-handlebars-template">{{#each items}}
+          <div class="main__item" draggable="true" data-id="{{id}}"><img class="main__img" draggable="false" src="{{photo_100}}">
+            <div class="main__name">{{first_name}} {{last_name}}</div>
+            <svg class="icon icon-times ">
+              <use xlink:href="./assets/img/sprites/sprite.svg#times"></use>
+            </svg>
+          </div>{{/each}}
+        </script>
+      </section>
+    </div>
+  </body>
+</html>
