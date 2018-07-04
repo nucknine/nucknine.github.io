@@ -170,11 +170,11 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 
         function toggleIcon(target) {
             if (target.parentElement.classList.contains('icon-plus')) {
-                target.setAttribute('xlink:href', '/assets/img/sprites/sprite.svg#times');
+                target.setAttribute('xlink:href', './assets/img/sprites/sprite.svg#times');
                 target.parentElement.classList.add('icon-times');
                 target.parentElement.classList.remove('icon-plus');
             } else if (target.parentElement.classList.contains('icon-times')) {
-                target.setAttribute('xlink:href', '/assets/img/sprites/sprite.svg#plus');
+                target.setAttribute('xlink:href', './assets/img/sprites/sprite.svg#plus');
                 target.parentElement.classList.add('icon-plus');
                 target.parentElement.classList.remove('icon-times');
             }
