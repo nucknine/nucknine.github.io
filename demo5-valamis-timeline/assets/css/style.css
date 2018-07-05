@@ -1,0 +1,368 @@
+@charset "UTF-8";
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Normalize
+# Typography
+# Elements
+# Forms
+# Navigation
+  ## Links
+  ## Menus
+# Accessibility
+# Alignments
+# Clearings
+# Widgets
+# Content
+  ## Posts and pages
+  ## Comments
+# Infinite scroll
+# Media
+  ## Captions
+  ## Galleries
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Global imports
+--------------------------------------------------------------*/
+/*
+clearfix миксин-плейсхолдер
+(scss-placeholder'ы используются вместо миксинов
+когда нет параметров (занимают меньше места чем миксины в коде))
+*/
+/*
+center element
+*/
+/*
+Fill element
+*/
+/*
+Sizes for element
+*/
+/*
+inline-block
+*/
+/*
+shadow
+*/
+/*
+adaptive media
+*/
+/*
+cols(n=3, m=10)
+margin-right m px
+width ((100% - (((@margin-right * n) / wrapper-width) * 100%)) / n)
+&:last-child
+margin-right 0rem
+
+// Fonts mixin
+font-url(file)
+return '../fonts/' + file
+
+webfont(family, file, hack-chrome-windows = false, weight = 'normal')
+@font-face
+font-family family
+src url(font-url(file + '.eot'))
+src url(font-url(file + '.eot?#iefix')) format('embedded-opentype'),
+url(font-url(file + '.woff')) format('woff'),
+url(font-url(file + '.ttf')) format('truetype'),
+url(font-url(file + '.svg#'+ family)) format('svg')
+font-weight weight
+font-style normal
+if hack-chrome-windows
+@media screen and (-webkit-min-device-pixel-ratio:0)
+@font-face
+font-family family
+src url(font-url(file + '.svg#'+ family)) format('svg')
+*/
+/*
+font-size
+задает размер шрифта в rem или px если нет поддержки.
+для body задан - 0.8 т.е. 1rem и 1rem
+*/
+/*шаблон по которому формирются стили для svg иконок*/
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,500,500i&amp;subset=cyrillic" rel="stylesheet"');
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  fill: currentColor; }
+
+.icon-map-marker {
+  font-size: 51.2rem;
+  width: 0.75em; }
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+@font-face {
+  font-family: 'bernier';
+  src: url("../../fonts/BERNIERRegular-Regular.otf");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Sansus Webissimo Regular';
+  src: url("../../fonts/SansusWebissimo.eot");
+  src: url("../../fonts/SansusWebissimo.eot?#iefix") format("embedded-opentype"), url("../../fonts/SansusWebissimo.woff") format("woff"), url("../../fonts/SansusWebissimo.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+body {
+  -webkit-font-smoothing: antialiased; }
+
+body,
+button,
+input,
+select,
+textarea {
+  color: #4f4f4f;
+  font-family: "Roboto", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  font-size: 1rem;
+  line-height: 1.6; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0.75rem;
+  font-family: "Roboto", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+  margin-bottom: 0.25rem;
+  clear: both;
+  font-weight: 400; }
+
+h1 {
+  font-size: 3rem; }
+
+h2 {
+  font-size: 2.5625rem; }
+
+h3 {
+  font-size: 2.1875rem; }
+
+h4 {
+  font-size: 2rem; }
+
+h5 {
+  font-size: 1.75rem; }
+
+h6 {
+  font-size: 1.5625rem; }
+
+/*--------------------------------------------------------------
+# Content
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Setup
+--------------------------------------------------------------*/
+html {
+  height: 100%;
+  font-size: 1rem; }
+  @media only screen and (max-width: 48rem) {
+    html {
+      font-size: 0.875rem; } }
+  @media only screen and (max-width: 24.375rem) {
+    html {
+      font-size: 0.875rem; } }
+
+body {
+  height: 100%;
+  margin: 0; }
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+h1, h2, h3, h4, h5 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: normal; }
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none; }
+
+p {
+  margin: 0; }
+
+/*--------------------------------------------------------------
+## Layout
+--------------------------------------------------------------*/
+.wrapper {
+  min-height: 100%;
+  position: relative;
+  overflow: hidden; }
+
+/*--------------------------------------------------------------
+## timeline
+--------------------------------------------------------------*/
+.timeline {
+  position: relative;
+  color: #fff;
+  font-weight: 300;
+  background-color: #16181a;
+  overflow: hidden; }
+  @media only screen and (max-width: 64rem) {
+    .timeline {
+      color: #16181a;
+      background-color: #fff; } }
+  .timeline__title {
+    margin-top: 3.125rem;
+    text-align: center; }
+  .timeline__titletext {
+    font-size: 2.5rem;
+    font-size: 2.5rem;
+    font-weight: 500; }
+  .timeline__container {
+    font-size: 1rem;
+    font-size: 1rem;
+    position: relative;
+    max-width: 48.4375rem;
+    margin: 0rem auto;
+    padding-bottom: 3.125rem; }
+    @media only screen and (max-width: 48rem) {
+      .timeline__container {
+        max-width: 44.6875rem; } }
+    @media only screen and (max-width: 24.375rem) {
+      .timeline__container {
+        max-width: 80%; } }
+    .timeline__container::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+              transform: translateX(-50%);
+      height: 100%;
+      width: 0.0625rem;
+      background: #5e6266; }
+      @media only screen and (max-width: 24.375rem) {
+        .timeline__container::before {
+          left: 0%; } }
+  .timeline__yearblock {
+    margin: 1.875rem 0;
+    position: relative; }
+    .timeline__yearblock:first-child::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+              transform: translateX(-50%);
+      top: 2.8125rem;
+      display: inline-block;
+      width: 0.625rem;
+      height: 0.0625rem;
+      background-color: #5e6266; }
+      @media only screen and (max-width: 24.375rem) {
+        .timeline__yearblock:first-child::after {
+          left: 0%; } }
+  .timeline__year {
+    padding: 0.625rem;
+    font-size: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+    position: relative;
+    background-color: #16181a; }
+    @media only screen and (max-width: 24.375rem) {
+      .timeline__year {
+        left: 0%; } }
+    @media only screen and (max-width: 64rem) {
+      .timeline__year {
+        color: #16181a;
+        background-color: #fff; } }
+  .timeline__block {
+    padding: 1.5625rem;
+    position: relative;
+    width: 50%; }
+    @media only screen and (max-width: 24.375rem) {
+      .timeline__block {
+        width: 100%; } }
+    .timeline__block::after {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      -webkit-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+              transform: translateX(-50%);
+      left: 100%;
+      top: 2.0625rem;
+      background-color: #1097fe;
+      width: 0.625rem;
+      height: 0.625rem;
+      border-radius: 50%; }
+      @media only screen and (max-width: 24.375rem) {
+        .timeline__block::after {
+          left: 0; } }
+    .timeline__block_left {
+      padding-left: 0;
+      text-align: right;
+      left: 0; }
+      @media only screen and (max-width: 24.375rem) {
+        .timeline__block_left {
+          text-align: left;
+          padding-left: 1.5625rem;
+          left: 0%; } }
+    .timeline__block_right {
+      padding-right: 0;
+      left: 50%; }
+      .timeline__block_right::after {
+        left: 0; }
+      @media only screen and (max-width: 24.375rem) {
+        .timeline__block_right {
+          left: 0%; } }
+  .timeline__text {
+    margin-bottom: 0.625rem; }
+  .timeline__picture {
+    display: inline-block;
+    margin-bottom: 0.625rem; }
+  .timeline__img {
+    max-width: 100%;
+    border-radius: 0.3125rem; }
+  .timeline__footer {
+    height: 7.5rem;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    bottom: 0rem; }
+  .timeline__gradient {
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: -webkit-gradient(linear, left bottom, left top, from(#16181a), color-stop(40%, #16181a), color-stop(99%, rgba(22, 24, 26, 0)), to(rgba(22, 24, 26, 0)));
+    background: -o-linear-gradient(bottom, #16181a 0%, #16181a 40%, rgba(22, 24, 26, 0) 99%, rgba(22, 24, 26, 0) 100%);
+    background: linear-gradient(to top, #16181a 0%, #16181a 40%, rgba(22, 24, 26, 0) 99%, rgba(22, 24, 26, 0) 100%); }
+    @media only screen and (max-width: 64rem) {
+      .timeline__gradient {
+        background: -webkit-gradient(linear, left bottom, left top, from(white), color-stop(40%, white), color-stop(99%, rgba(255, 255, 255, 0)), to(rgba(255, 255, 255, 0)));
+        background: -o-linear-gradient(bottom, white 0%, white 40%, rgba(255, 255, 255, 0) 99%, rgba(255, 255, 255, 0) 100%);
+        background: linear-gradient(to top, white 0%, white 40%, rgba(255, 255, 255, 0) 99%, rgba(255, 255, 255, 0) 100%); } }
+  .timeline__button {
+    outline: none;
+    width: 11.5625rem;
+    height: 2.5rem;
+    background-color: transparent;
+    color: #fff;
+    text-transform: uppercase;
+    border: 0.0625rem solid #fff;
+    border-radius: 0.3125rem;
+    z-index: 2;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+    bottom: 50%;
+    cursor: pointer; }
+    @media only screen and (max-width: 64rem) {
+      .timeline__button {
+        color: #16181a;
+        border: 0.0625rem solid #16181a; } }
+
+/*# sourceMappingURL=maps/style.css.map */
