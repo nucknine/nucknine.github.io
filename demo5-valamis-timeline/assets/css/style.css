@@ -92,6 +92,32 @@ font-size
   width: 0.75em; }
 
 /*--------------------------------------------------------------
+# Animations
+--------------------------------------------------------------*/
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.1);
+            transform: scale(0.1); }
+  60% {
+    opacity: 0.5; }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.1);
+            transform: scale(0.1); }
+  60% {
+    opacity: 0.5; }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+/*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
 @font-face {
@@ -213,6 +239,7 @@ p {
     font-weight: 500;
     line-height: 1; }
   .timeline__container {
+    height: 90vh;
     font-size: 1rem;
     font-size: 1rem;
     position: relative;
@@ -326,6 +353,13 @@ p {
       @media only screen and (max-width: 24.375rem) {
         .timeline__block_right {
           left: 0%; } }
+  @media only screen and (min-width: 64rem) {
+    .timeline__content_hidden {
+      visibility: hidden; }
+    .timeline__content_animation_bounce-in {
+      visibility: visible;
+      -webkit-animation: fade-in .6s;
+              animation: fade-in .6s; } }
   .timeline__text {
     margin-bottom: 0.625rem; }
   .timeline__picture {
@@ -374,5 +408,52 @@ p {
       .timeline__button {
         color: #16181a;
         border: 0.0625rem solid #16181a; } }
+
+/*--------------------------------------------------------------
+## preloader
+--------------------------------------------------------------*/
+.preloader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #16181a;
+  z-index: 3; }
+  .preloader__box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    width: 7.5rem;
+    height: 7.5rem; }
+  .preloader__load {
+    border: 1rem solid #1097fe;
+    border-top: 0.25rem solid #1097fe;
+    border-bottom: 0.25rem solid #1097fe;
+    background: #fff;
+    border-radius: 50%;
+    width: 7.5rem;
+    height: 7.5rem;
+    -webkit-animation: spin 1s linear infinite;
+            animation: spin 1s linear infinite; }
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
 
 /*# sourceMappingURL=maps/style.css.map */
