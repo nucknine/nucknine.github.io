@@ -390,8 +390,8 @@ p {
         background: linear-gradient(to top, white 0%, white 40%, rgba(255, 255, 255, 0) 99%, rgba(255, 255, 255, 0) 100%); } }
   .timeline__button {
     outline: none;
-    width: 11.5625rem;
-    height: 2.5rem;
+    min-width: 11.5625rem;
+    min-height: 2.5rem;
     background-color: transparent;
     color: #fff;
     text-transform: uppercase;
